@@ -9,7 +9,9 @@ var score = 0
 var gameScreen = 0;
 var bestScore = 0; 
 var gameScreen = 0; 
-var index = 1;
+var racket_w = 200;
+var racket_h = 20;
+var time = 1000;
 
 // Canvas
 function setup() {
@@ -82,7 +84,7 @@ function gamePlayScreen(){
 
   // Paddle
   fill('#f00000');
-  rect(nosenx-100, windowHeight-20, 200, 15);
+  rect(nosenx, windowHeight-racket_h, racket_w, racket_h);
 
   //Functions
   move();
@@ -91,12 +93,19 @@ function gamePlayScreen(){
   //resetBall();
   paddle();
 
-  
+  if (time == 0){
+    gameOver();
+  } else {
+    time--;
+  }
 
   //Score
+  textAlign(LEFT); 
   fill('#000000');
   textSize(24);
   text("Score: " + score, 10, 25);
+  text("Time: " + time, 10, 45);
+
 }
 
 function gameOverScreen(){
@@ -147,13 +156,12 @@ function paddle() {
     nosenx = nosex + 2*i
   }
 
-  if ((xBall > nosenx - 100 &&
-      xBall < nosenx + 100) &&
-    (yBall + 25 >= windowHeight-35)) {
+  if ((xBall > nosenx-racket_w/2 &&
+      xBall < nosenx+racket_w/2) &&
+    (yBall + 60 >= windowHeight)) {
     xSpeed *= -1;
     ySpeed *= -1;
     score++;
-
   }
 }
 
