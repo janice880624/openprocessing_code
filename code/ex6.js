@@ -6,11 +6,6 @@ var xSpeed = (2, 7);
 var ySpeed = 15;
 var score = 0
 
-var gameScreen = 0;
-var bestScore = 0; 
-var gameScreen = 0; 
-var index = 1;
-
 // Canvas
 function setup() {
   createCanvas(windowWidth, windowHeight-10);
@@ -26,33 +21,6 @@ function setup() {
 }
 
 function draw() {
-  if (gameScreen == 0) {
-    initScreen();       
-  } else if (gameScreen == 1) {  
-    gamePlayScreen();            
-  } else if (gameScreen == 2) {  
-    gameOverScreen();           
-  } 
-}
-
-function initScreen() {              
-  background(236, 240, 241);       
-
-  textAlign(CENTER);               
-  fill(52, 73, 94);                
-  textSize(100);                   
-  text("反彈遊戲", width/2, height/2); 
-
-  fill(92,167,182);                 
-  noStroke();                       
-  rectMode(CENTER);               
-  rect(width/2, height-40, 200, 60, 5); 
-  fill(236,240,241);         
-  textSize(30);                   
-  text("開始", width/2, height-30); 
-}
-
-function gamePlayScreen(){
   // Background
   background(0);
 
@@ -98,19 +66,12 @@ function gamePlayScreen(){
   textSize(24);
   text("Score: " + score, 10, 25);
 }
-
-function gameOverScreen(){
-  background(23, 24, 24,3);
-  textAlign(CENTER);
-  text("遊戲結束", width/2, height/10);
-}
-
-
 // Ball Functions
 function move() {
   xBall += xSpeed;
   yBall += ySpeed;
 }
+
 
 function bounce() {
 
@@ -164,39 +125,3 @@ function getPoses(poses) {
     nosey = poses[0].pose.keypoints[0].position.y;
   }
 }
-
-// 定義鼠標事件
-function mouseClicked() {
-      
-  if(gameScreen == 0){
-    startGame();         
-  } 
-  if(gameScreen == 2){
-    restart(); 
-  } 
-}
-
-// 遊戲開始
-function startGame(){ 
-  gameScreen = 1;
-}
-
-// 遊戲結束
-function gameOver(){    
-  gameScreen = 2; 
-} 
-
-// 重啟遊戲
-function restart(){ 
-  gameScreen = 1;
-  lastAddTime = 0;
-  score = 0;
-}
-
-// 設置得分列印
-function printScore() { 
-  textAlign(LEFT); 
-  fill(50);
-  textSize(30);
-  text("得分: "+score, 5*width/6, height/9);
-} 

@@ -41,7 +41,7 @@ function draw() {
   }
 
   updatePixels();
-
+ 
   b.move();
   b.checkEdge();
 
