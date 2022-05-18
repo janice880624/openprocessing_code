@@ -111,7 +111,10 @@ function gamePlayScreen(){
 function gameOverScreen(){
   background(23, 24, 24,3);
   textAlign(CENTER);
+  fill(52, 73, 94);                
+  textSize(100);  
   text("遊戲結束", width/2, height/10);
+  text("成績", score, height/10+50);
 }
 
 
