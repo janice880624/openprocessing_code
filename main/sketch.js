@@ -3,7 +3,7 @@ var nosenx=0;
 var xBall = Math.floor(Math.random() * 300) + 50;
 var yBall = 50;
 var xSpeed = (2, 7);
-var ySpeed = 15;
+var ySpeed = 30;
 var score = 0
 
 var gameScreen = 0;
@@ -11,7 +11,7 @@ var bestScore = 0;
 var gameScreen = 0; 
 var racket_w = 200;
 var racket_h = 20;
-var time = 200;
+var time = 1000;
 
 // Canvas
 function setup() {
