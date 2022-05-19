@@ -11,7 +11,7 @@ var bestScore = 0;
 var gameScreen = 0; 
 var racket_w = 200;
 var racket_h = 20;
-var time = 1000;
+var time = 200;
 
 // Canvas
 function setup() {
@@ -103,18 +103,18 @@ function gamePlayScreen(){
   textAlign(LEFT); 
   fill('#000000');
   textSize(24);
-  text("Score: " + score, 10, 25);
-  text("Time: " + time, 10, 45);
+  text("Score: " + score, 10, 35);
+  text("Time: " + time, 10, 65);
 
 }
 
 function gameOverScreen(){
   background(23, 24, 24,3);
   textAlign(CENTER);
-  fill(52, 73, 94);                
+  fill('#FFDC35');                
   textSize(100);  
-  text("遊戲結束", width/2, height/10);
-  text("成績", score, height/10+50);
+  text("遊戲結束", width/2, height/2 - 100);
+  text("成績："+score, width/2, height/2 + 100);
 }
 
 
